@@ -1,3 +1,3 @@
 # Walker
 
-Something that will be distributed KVS. :metal: :alien: :metal:
+Something that will be distributed KVS based on memcached protocol. :metal: :alien: :metal:
