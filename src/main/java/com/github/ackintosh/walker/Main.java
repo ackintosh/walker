@@ -32,9 +32,16 @@ public class Main {
                         String key = parts[1];
                         String value = parts[2].substring(0, parts[2].indexOf("\r\n"));
                         values.put(key, value);
+                    } else if(receivedString.startsWith("get ")) {
+                        String[] parts = receivedString.split("[\\s]+", 2);
+                        String key = parts[1].substring(0, parts[1].indexOf("\r\n"));
+                        to.write((values.get(key) + "\r\n").getBytes());
+                    } else {
+                        // echo
+                        to.write(data);
                     }
-                    // echo
-                    to.write(data);
+                    // cleanup
+                    data = new byte[1024];
                 }
             }
         } catch (IOException e) {
